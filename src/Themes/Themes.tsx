@@ -6,6 +6,7 @@ export const customLightTheme = createTheme({
     typography: {
         button: {
             textTransform: 'none', // Set textTransform to 'none' for buttons
+            
           },
       },
   });
@@ -15,6 +16,8 @@ export const customLightTheme = createTheme({
     typography: {
         button: {
             textTransform: 'none', // Set textTransform to 'none' for buttons
+            color: '#d32f2f',
+          
           },
       },
   });
