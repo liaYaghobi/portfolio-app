@@ -1,18 +1,26 @@
+import { SimplePaletteColorOptions } from '@material-ui/core';
 import { PaletteOptions} from '@mui/material/styles';
 
-export const lightPalette: PaletteOptions = {
-    mode: 'light',
+interface DefaultPaletteOptions extends PaletteOptions {
+  primary?: SimplePaletteColorOptions;
+}
+export const lightPalette: DefaultPaletteOptions = {
+    background: {
+      default: '#fafafa', //Sets Light Mode Background Color
+   },
     primary: {
-      main: '#fafafa', // Example color
-    //  contrastText: '#212121',
-    },
-    
+      main: '#fafafa', 
+      contrastText: '#212121',
+    },  
   };
   
-export const darkPalette: PaletteOptions = {
-    mode: 'dark',
+export const darkPalette: DefaultPaletteOptions = {
+    background: {
+       default: '#212121', //Sets Dark Mode Background Color
+    },
     primary: {
-      main: '#2196f3', // Example color
+      main: '#212121', 
+      contrastText: '#fafafa',
     },
   };
 
