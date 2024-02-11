@@ -1,3 +1,5 @@
+A work in progress portfolio app. My goal for this application is to learn Typescript. It has been interesting and at times challenging to use Typescript with MUI. Another goal of mine for this project is to use completely custom styling, with both a dark and light mode. I wanted to create the entire palette of the application myself, not relying on any of MUI's built in themes. Although MUI's built in theming features can be really helpful, often times you are limited to what you can do.
+
 # Getting Started with Create React App
 
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
