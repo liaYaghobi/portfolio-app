@@ -3,7 +3,9 @@ import { PaletteOptions} from '@mui/material/styles';
 
 interface DefaultPaletteOptions extends PaletteOptions {
   primary?: SimplePaletteColorOptions;
+  secondary? :SimplePaletteColorOptions;
 }
+
 export const lightPalette: DefaultPaletteOptions = {
     background: {
       default: '#fafafa', //Sets Light Mode Background Color
@@ -11,6 +13,9 @@ export const lightPalette: DefaultPaletteOptions = {
     primary: {
       main: '#fafafa', 
       contrastText: '#212121',
+    },  
+    secondary: {
+      main: '#212121', 
     },  
   };
   
@@ -21,6 +26,10 @@ export const darkPalette: DefaultPaletteOptions = {
     primary: {
       main: '#212121', 
       contrastText: '#fafafa',
+    },
+    secondary: {
+      main: '#fafafa', 
+     
     },
   };
 

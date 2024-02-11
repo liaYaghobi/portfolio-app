@@ -8,7 +8,7 @@ interface HorizontalStackContainerProps extends BoxProps {
 
 const HorizontalStackContainer: React.FC<HorizontalStackContainerProps> = ({ children, ...rest }) => {
   return (
-    <Box sx={{ display: 'flex', gap: '16px', ...rest, marginBottom: '150px' }}>
+    <Box sx={{ display: 'flex',alignItems: 'center', ...rest, marginBottom: '20px' }}>
       {React.Children.map(children, (child, index) => (
         <Box key={index} sx={{ flex: '1' }}>
           {child}

@@ -4,55 +4,31 @@ import { globalTheme } from '../Themes/Themes';
 import HorizontalStackContainer from './HorizontalStackContainer';
 import React from 'react';
 
-const customTheme = createTheme({
-  typography: {
-    fontFamily: 'Helvetica',
-  },
-  components: {
-    // Define styles for specific components
-    MuiTypography: {
-      // Define styles for the Typography component
-      styleOverrides: {
-        // Add a class to the Typography component
-        root: {
-          '&.type1': {
-            fontSize: 40,
-            fontWeight: 730,  
-          },
-          '&.type2': {
-            fontSize: 40,
-            fontWeight: 730,
-            color: 'blue',
-          },
-        },
-      },
-    },
-  },
-});
+
 
 const AboutPage = React.forwardRef((props, ref) => {
   return (
-    <ThemeProvider theme={customTheme}>
+    <Box sx={{minHeight: '1000px'}}>
       <HorizontalStackContainer>
-        <Box ref={ref} sx={{ flex: '0 0 50%', flexGrow: 1, margin: globalTheme.spacing(8) }}>
-          {/* Your content here */}
-          <Typography className="type1">
-            THIS IS THE
-          </Typography>
-          <Box sx={{ display: 'flex', gap: 1 }}>
-            <Typography className="type1">ABOUT</Typography>
-            <Typography className="type2">PAGE</Typography>
-          </Box>
-          <Typography>
-            A full-stack developer who loves all things tech. I bring passion for creating cool stuff with code. Let's make
-            things happen in the digital realm!
-          </Typography>
+        <Box ref={ref} sx={{ flex: '0 0 50%', flexGrow: 1 , margin: globalTheme.spacing(8)}}>
+        <img src={process.env.PUBLIC_URL + '/images/mee2.jpg'}  alt="A girl standing on the brooklyn bridge" />
         </Box>
         <Box>
-          <img src={process.env.PUBLIC_URL + '/images/headshot.png'} alt="Description of the image" />
+          <Typography variant = 'h2'>
+            About
+          </Typography>
+          <Typography sx={{ flex: '0 0 50%', flexGrow: 1}}>
+          Based in Los Angeles, I'm a full stack developer whose coding journey started in computer science classes. 
+          While I have a knack for full stack development, what keeps me hooked is the thrill of learning. 
+          Every project is an adventure, and I love the collaborative dance of coding—it's about turning ideas 
+          into reality and making friends along the way. When I'm not coding, you can find me tending to my plants, 
+          enjoying the outdoors (I love to hike, yes I know, crazy), and relishing the company of friends and family.
+
+          </Typography>
+         
         </Box>
       </HorizontalStackContainer>
-    </ThemeProvider>
+      </Box>
   );
 });
 

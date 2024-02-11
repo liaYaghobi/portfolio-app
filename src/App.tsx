@@ -9,6 +9,8 @@ import TopMenu from '../src/Components/TopMenu';
 import HomePage from '../src/Components/HomePage';
 import CssBaseline from '@mui/material/CssBaseline';
 import AboutPage from './Components/AboutPage';
+import ExperiencePage from './Components/ExperiencePage';
+import ContactPage from './Components/ContactPage';
 
 
 export default function App() {
@@ -16,22 +18,32 @@ export default function App() {
   const [currentPalette, setCurrentPalette] = useState(customLightTheme)
   const [isDarkMode, setIsDarkMode] = useState(false)
 
-  const homePageRef = useRef<HTMLDivElement | null>(null);
   const aboutPageRef = useRef<HTMLDivElement | null>(null);
+  const experiencePageRef = useRef<HTMLDivElement | null>(null);
+  const contactPageRef = useRef<HTMLDivElement | null>(null);
   
   // Function to scroll to a section
-  const scrollToSection = (sectionRef: React.RefObject<HTMLDivElement | null>) => {
+  const scrollToSection = (sectionRef: React.RefObject<HTMLDivElement | null>, offset = 0) => {
+    if (sectionRef.current) {
+      const topPosition = sectionRef.current.offsetTop - offset;
+      window.scrollTo({
+        top: topPosition,
+        behavior: 'smooth',
+      });
+    }
+  };
+
+  /*const scrollToSection = (sectionRef: React.RefObject<HTMLDivElement | null>) => {
     if (sectionRef.current) {
       console.log('Scrolling to section:', sectionRef.current);
       sectionRef.current.scrollIntoView({ behavior: 'smooth' });
     }
-  };
-  
-  useEffect(() => {
-    console.log('Current homePageRef:', homePageRef.current);
-    console.log('Current aboutPageRef:', aboutPageRef.current);
-  }, []);
+  };*/
 
+  const scrollToHome = () => {
+    window.scrollTo({ top: 0, behavior: 'smooth' });
+  }
+  
   const toggleIcon = () => {
     setIsDarkMode((prevMode) => !prevMode);
     setCurrentPalette((prevType) => (prevType === customLightTheme ? customDarkTheme : customLightTheme));
@@ -46,11 +58,15 @@ const theme = createTheme(currentPalette);
    <TopMenu   
           isDarkMode={isDarkMode}
           onToggle={toggleIcon}
-          onScrollToHome={() => scrollToSection(homePageRef)}
-          onScrollToAbout={() => scrollToSection(aboutPageRef)}
+          onScrollToHome={() => scrollToHome()}
+          onScrollToAbout={() => scrollToSection(aboutPageRef,0)}
+          onScrollToExperience={() => scrollToSection(experiencePageRef,0)}
+          onScrollToContact={() => scrollToSection(contactPageRef,60)}
    />
-    <HomePage  ref={homePageRef} /> 
+    <HomePage /> 
     <AboutPage ref={aboutPageRef}/> 
+    <ExperiencePage ref={experiencePageRef}/>
+    <ContactPage ref = {contactPageRef}/>
     </ThemeProvider>
   </Box>
     
